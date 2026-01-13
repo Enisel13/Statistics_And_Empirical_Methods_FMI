@@ -1,0 +1,11 @@
+#Задача 5. един и същи ден от годината?
+#Каква е вероятността в група от 25 човека поне двама да имат рожден ден на
+
+sim.birthday <- function(){
+    group <- sample(1:265, size=25, replace=TRUE)
+    # Проверяваме дали има поне две еднакви числа в групата
+    # Функцията any(duplicated(...)) връща TRUE, ако има повторения
+    any(duplicated(group))
+}
+res<-replicate(100000, sim.birthday())
+sum(res)/length(res)
