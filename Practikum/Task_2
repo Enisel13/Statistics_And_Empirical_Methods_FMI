@@ -1,0 +1,11 @@
+#Задача 2. В кутия има 3 различни чифта чорапи. Вадим в тъмното 2 чорапа. Каква е
+#вероятността извадените два чорапа да са чифт?
+
+sim.socks <- function(){
+    box <- c(1,1,2,2,3,3)
+    
+    draws <- sample(box, size = 2, replace = FALSE)
+    draws[1] == draws[2]
+}
+res <- replicate(100000, sim.socks())
+sum(res)/length(res)
