@@ -1,0 +1,15 @@
+#Задача 14. В кутия има 99 топки номерирани от 1 до 99. 
+#Теглим без връщане 4 случайно избрани топки.
+#Каква е вероятността първата извадена топка да е с най-голям номер от извадените?
+
+sim.ballsMax <- function(){
+    ballsCount <- c(1:99)
+    drawnBalls <- sample(ballsCount, 4, replace = FALSE)
+    maxVal <- max(drawnBalls)
+    
+    drawnBalls[1] == maxVal
+}
+
+Nrep <- 100000
+res <- replicate(Nrep, sim.ballsMax())
+prob <- sum(res) / Nrep
