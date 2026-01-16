@@ -1,0 +1,6 @@
+sim.dice <- function(){
+    draws <- sample(c(1:6), 4, replace=TRUE)
+    draws[1] + draws[2] > draws[3] + draws[4]
+}
+res <- replicate(10000, sim.dice())
+sum(res) / length(res)
